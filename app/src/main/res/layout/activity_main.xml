@@ -70,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="덧셈"
-        app:layout_constraintEnd_toEndOf="@+id/result_value"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintEnd_toEndOf="@+id/result"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/result"
         app:layout_constraintTop_toBottomOf="@+id/result" />
 
@@ -90,9 +90,9 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/mul_btn"
-        android:layout_width="81dp"
-        android:layout_height="52dp"
+        android:id="@+id/multiplication_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="곱셈"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,10 +107,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="나눗셈"
-        app:layout_constraintBottom_toBottomOf="@+id/mul_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/multiplication_btn"
         app:layout_constraintEnd_toEndOf="@+id/minus_btn"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/mul_btn"
-        app:layout_constraintTop_toTopOf="@+id/mul_btn" />
+        app:layout_constraintStart_toEndOf="@+id/multiplication_btn"
+        app:layout_constraintTop_toTopOf="@+id/multiplication_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
