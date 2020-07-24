@@ -3,10 +3,12 @@ package com.example.studentclass_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     //계산을 하기위해 edittext의 값을 int형으로 저장시킬 변수
     public float firstEditValue;
     public float secondEditValue;
+
+    String firstTextValue;
+    String secondTextValue;
 
     public Calculator calculator;
 
@@ -53,41 +58,65 @@ public class MainActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Edit텍스트값 가져오기
-                firstEditValue = Float.parseFloat(firstValue.getText().toString());
-                secondEditValue = Float.parseFloat(secondValue.getText().toString());
-                //result_value.setText(""+(edit1_value+edit2_value));
-                resultValue.setText(Float.toString(calculator.add(firstEditValue, secondEditValue)));
+
+                if(TextUtils.isEmpty(firstValue.getText()) || TextUtils.isEmpty(secondValue.getText())) {
+                    Toast.makeText(getApplicationContext(), "아무 값도 입력 되지 않았습니다.", Toast.LENGTH_LONG).show();
+                }else {
+                    //Edit텍스트값 가져오기
+                    firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                    secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                    //result_value.setText(""+(edit1_value+edit2_value));
+                    resultValue.setText(Float.toString(calculator.add(firstEditValue, secondEditValue)));
+                    Toast.makeText(getApplicationContext(), "덧셈", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         minusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firstEditValue = Float.parseFloat(firstValue.getText().toString());
-                secondEditValue = Float.parseFloat(secondValue.getText().toString());
-                //result_value.setText(""+(edit1_value+edit2_value));
-                resultValue.setText(Float.toString(calculator.miuns(firstEditValue, secondEditValue)));
+
+                if(TextUtils.isEmpty(firstValue.getText()) || TextUtils.isEmpty(secondValue.getText())) {
+                    Toast.makeText(getApplicationContext(), "아무 값도 입력 되지 않았습니다.", Toast.LENGTH_LONG).show();
+                }else{
+                    firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                    secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                    //result_value.setText(""+(edit1_value+edit2_value));
+                    Toast.makeText(getApplicationContext(), "뺄셈", Toast.LENGTH_LONG).show();
+                    resultValue.setText(Float.toString(calculator.miuns(firstEditValue, secondEditValue)));
+                }
             }
         });
 
         multiplicationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firstEditValue = Float.parseFloat(firstValue.getText().toString());
-                secondEditValue = Float.parseFloat(secondValue.getText().toString());
-                //result_value.setText(""+(edit1_value+edit2_value));
-                resultValue.setText(Float.toString(calculator.multiplication(firstEditValue, secondEditValue)));
+
+                if(TextUtils.isEmpty(firstValue.getText()) || TextUtils.isEmpty(secondValue.getText())) {
+                    Toast.makeText(getApplicationContext(), "아무 값도 입력 되지 않았습니다.", Toast.LENGTH_LONG).show();
+                }else{
+                    firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                    secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                    //result_value.setText(""+(edit1_value+edit2_value));
+                    Toast.makeText(getApplicationContext(), "곱셈", Toast.LENGTH_LONG).show();
+                    resultValue.setText(Float.toString(calculator.multiplication(firstEditValue, secondEditValue)));
+                }
             }
         });
 
         divisionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firstEditValue = Float.parseFloat(firstValue.getText().toString());
-                secondEditValue = Float.parseFloat(secondValue.getText().toString());
-                //result_value.setText(""+(edit1_value+edit2_value));
-                resultValue.setText(Float.toString(calculator.division(firstEditValue, secondEditValue)));
+
+                if(TextUtils.isEmpty(firstValue.getText()) || TextUtils.isEmpty(secondValue.getText())) {
+                    Toast.makeText(getApplicationContext(), "아무 값도 입력 되지 않았습니다.", Toast.LENGTH_LONG).show();
+                }else{
+                    firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                    secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                    //result_value.setText(""+(edit1_value+edit2_value));
+                    Toast.makeText(getApplicationContext(), "나눗셈", Toast.LENGTH_LONG).show();
+                    resultValue.setText(Float.toString(calculator.division(firstEditValue, secondEditValue)));
+                }
             }
         });
     }
