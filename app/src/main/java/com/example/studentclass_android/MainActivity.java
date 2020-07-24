@@ -11,21 +11,23 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //버튼 정의
-    Button add_btn;
-    Button minus_btn;
-    Button multiplication_btn;
-    Button division_btn;
+    Button addBtn;
+    Button minusBtn;
+    Button multiplicationBtn;
+    Button divisionBtn;
 
     //텍스트뷰 정의
-    TextView result_value;
+    TextView resultValue;
 
     //Edit텍스트 정의
-    EditText first_value;
-    EditText second_value;
+    EditText firstValue;
+    EditText secondValue;
 
     //계산을 하기위해 edittext의 값을 int형으로 저장시킬 변수
-    private float edit1_value;
-    private float edit2_value;
+    public float firstEditValue;
+    public float secondEditValue;
+
+    public Calculator calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,57 +35,59 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //xml의 버튼과 액티비티 연결
-        add_btn = findViewById(R.id.add_btn);
-        minus_btn = findViewById(R.id.minus_btn);
-        multiplication_btn = findViewById(R.id.multiplication_btn);
-        division_btn = findViewById(R.id.division_btn);
+        addBtn = findViewById(R.id.add_btn);
+        minusBtn = findViewById(R.id.minus_btn);
+        multiplicationBtn = findViewById(R.id.multiplication_btn);
+        divisionBtn = findViewById(R.id.division_btn);
 
         //xml의 텍스트뷰와 액티비티 연결
-        result_value = findViewById(R.id.result_value);
+        resultValue = findViewById(R.id.result_value);
 
         //xml의 Edit텍스트와 액티비티 연결
-        first_value = findViewById(R.id.first_value);
-        second_value = findViewById(R.id.second_value);
+        firstValue = findViewById(R.id.first_value);
+        secondValue = findViewById(R.id.second_value);
+
+        calculator = new Calculator();
 
         //버튼 클릭이벤트
-        add_btn.setOnClickListener(new View.OnClickListener() {
+        addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Edit텍스트값 가져오기)
-                edit1_value = Float.parseFloat(first_value.getText().toString());
-                edit2_value = Float.parseFloat(second_value.getText().toString());
+                //Edit텍스트값 가져오기
+                firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                secondEditValue = Float.parseFloat(secondValue.getText().toString());
                 //result_value.setText(""+(edit1_value+edit2_value));
-                result_value.setText(Float.toString(edit1_value+edit2_value));
+                resultValue.setText(Float.toString(calculator.add(firstEditValue, secondEditValue)));
             }
         });
 
-        minus_btn.setOnClickListener(new View.OnClickListener() {
+        minusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit1_value = Float.parseFloat(first_value.getText().toString());
-                edit2_value = Float.parseFloat(second_value.getText().toString());
-                //result_value.setText(""+(edit1_value-edit2_value));
-                result_value.setText(Float.toString(edit1_value-edit2_value));
+                firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                //result_value.setText(""+(edit1_value+edit2_value));
+                resultValue.setText(Float.toString(calculator.miuns(firstEditValue, secondEditValue)));
             }
         });
 
-        multiplication_btn.setOnClickListener(new View.OnClickListener() {
+        multiplicationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit1_value = Float.parseFloat(first_value.getText().toString());
-                edit2_value = Float.parseFloat(second_value.getText().toString());
-                //result_value.setText(""+(edit1_value*edit2_value));
-                result_value.setText(Float.toString(edit1_value*edit2_value));
+                firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                //result_value.setText(""+(edit1_value+edit2_value));
+                resultValue.setText(Float.toString(calculator.multiplication(firstEditValue, secondEditValue)));
             }
         });
 
-        division_btn.setOnClickListener(new View.OnClickListener() {
+        divisionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit1_value = Float.parseFloat(first_value.getText().toString());
-                edit2_value = Float.parseFloat(second_value.getText().toString());
-                //result_value.setText(""+(edit1_value/edit2_value));
-                result_value.setText(Float.toString(edit1_value/edit2_value));
+                firstEditValue = Float.parseFloat(firstValue.getText().toString());
+                secondEditValue = Float.parseFloat(secondValue.getText().toString());
+                //result_value.setText(""+(edit1_value+edit2_value));
+                resultValue.setText(Float.toString(calculator.division(firstEditValue, secondEditValue)));
             }
         });
     }
