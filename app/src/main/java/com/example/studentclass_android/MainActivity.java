@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
     public float firstEditValue;
     public float secondEditValue;
 
-    String firstTextValue;
-    String secondTextValue;
-
     public Calculator calculator;
 
     @Override
