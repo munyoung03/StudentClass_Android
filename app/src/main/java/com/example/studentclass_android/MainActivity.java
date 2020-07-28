@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText firstValue;
     EditText secondValue;
 
-    //계산을 하기위해 edittext의 값을 int형으로 저장시킬 변수
+    //계산을 하기위해 edittext의 값을 저장시킬 변수
     public float firstEditValue;
     public float secondEditValue;
 
